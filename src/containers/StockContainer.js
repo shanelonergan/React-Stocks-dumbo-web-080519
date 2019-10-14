@@ -1,19 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Stock from '../components/Stock'
 
-class StockContainer extends Component {
+// export const slapStocks = (stocksArr) => {
+//   return stocksArr.map(stock => {
+//     return <Stock stock={ stock }/>
+//   })
+// }
 
-  render() {
-    return (
-      <div>
-        <h2>Stocks</h2>
-        {
-          //render the list of stocks here
-        }
-      </div>
-    );
+
+const StockContainer = ({ stocks, handlePurchase }) => {
+
+  const slapStocks = () => {
+    return stocks.map(stock => {
+      return <Stock
+                stock={ stock }
+                handlePurchase={ handlePurchase }
+                key={ `stock-${stock.id}`}
+            />
+    })
   }
+
+  return (
+    <div>
+      <h2>Stocks</h2>
+      {
+        // console.log(stocks)
+        slapStocks()
+      }
+    </div>
+  );
 
 }
 
-export default StockContainer;
+export default StockContainer

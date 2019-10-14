@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import Stock from '../components/Stock'
+// import slapStock from '../components/Stock'
 
-class PortfolioContainer extends Component {
 
-  render() {
-    return (
-      <div>
-        <h2>My Portfolio</h2>
-          {
-            //render your portfolio stocks here
-          }
-      </div>
-    );
+const PortfolioContainer = ({ stocks }) => {
+
+  const slapStocks = () => {
+    console.log(stocks)
+    return stocks.map(stock => {
+      return <Stock stock={ stock }/>
+    })
   }
+
+
+  return (
+    <div>
+      <h2>My Portfolio</h2>
+        {
+          slapStocks()
+        }
+    </div>
+  );
+
 
 }
 
